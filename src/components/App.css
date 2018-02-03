@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  position: relative;
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 50px;
+  color: white;
+}
+
+.App-title {
+  line-height: 50px;
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.title {
+  margin-top: 25px; 
+}

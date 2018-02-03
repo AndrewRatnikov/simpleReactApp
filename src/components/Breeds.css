@@ -1,0 +1,39 @@
+.left-menu {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    list-style: none;
+    width: 250px;
+    padding: 1em;
+    overflow: scroll;
+    border-right: 1px solid #222;
+    z-index: 2;
+}
+
+.left-menu > li {
+    margin-bottom: 5px;
+}
+
+.left-menu > li span {
+    color: #00f;
+    cursor: pointer;
+}
+
+.left-menu > li span:hover {
+    text-decoration: underline;
+}
+
+.left-menu > li span:active {
+    color: #009;
+}
+
+.sublist {
+    list-style: none;
+    margin-left: 2em;
+}
+
+.active-tab {
+    color: #000;
+    text-decoration: none;
+}
