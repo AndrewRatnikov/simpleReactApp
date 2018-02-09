@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 
+import placeholder from './placeholder';
+
 import './BreedImg.css';
 
-export default class BreedImg extends Component {
+class BreedImg extends Component {
 
     static propTypes = {
         breed: PropTypes.shape({
@@ -23,3 +25,5 @@ export default class BreedImg extends Component {
     }
 
 }
+
+export default placeholder( BreedImg, () => (<h3 className="title">Choose breed to see photo</h3>) );

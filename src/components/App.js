@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
-import Breeds from './Breeds'
-import BreedImg from './BreedImg'
-
 import { getAllBreeds, getBreedRandomImage } from '../api';
+
+import Main from './Main';
 
 import './App.css';
 
@@ -37,17 +36,16 @@ class App extends Component {
       })
   }
 
-  render() {
+  render () {
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Dogs Breeds</h1>
         </header>
-        { this.state.breeds ? <Breeds breeds={this.state.breeds} breedHandler={this.breedHandler} /> : <p>Loading...</p> }
-        { this.state.breed ? <BreedImg breed={this.state.breed} /> : <h3 className="title">Choose breed to see photo</h3> }
+        <Main breeds={this.state.breeds} breedHandler={this.breedHandler} breed={this.state.breed} />
       </div>
     );
-  }
+  } 
 }
 
 export default App;
