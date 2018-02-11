@@ -16,7 +16,7 @@
     "rules": {
         "no-console": "off",
         "react/display-name": 0,
-        "react/prop-types": 0
+        "react/prop-types": 1
     },
     "plugins": ["react"]
 }
