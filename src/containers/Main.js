@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import placeholder from './placeholder';
-import Breeds from './Breeds';
-import BreedImg from './BreedImg';
+import placeholder from '../hoc/placeholder';
+import Breeds from '../components/Breeds';
+import BreedImg from '../components/BreedImg';
 
 const Main = props => {
   return [

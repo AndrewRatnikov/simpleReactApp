@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 
-import placeholder from './placeholder';
+import placeholder from '../hoc/placeholder';
 
 import './BreedImg.css';
 

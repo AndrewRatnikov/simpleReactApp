@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { getAllBreeds, getBreedRandomImage } from '../api';
 
-import Main from './Main';
+import Main from '../containers/Main';
 
 import './App.css';
 
