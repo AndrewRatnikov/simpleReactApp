@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 
 import { getAllBreeds, getBreedRandomImage } from '../api';
 
@@ -6,6 +7,7 @@ import Main from '../containers/Main';
 
 import './App.css';
 
+@observer
 class App extends Component {
   constructor (props) {
     super(props);
@@ -18,10 +20,11 @@ class App extends Component {
   }
 
   componentDidMount () {
-    getAllBreeds()
-      .then(data => {
-        this.setState({ breeds: data.message });
-      });
+    this.props.store.getBreeds()
+    // getAllBreeds()
+    //   .then(data => {
+    //     this.setState({ breeds: data.message });
+    //   });
   }
 
   breedHandler = ( breed, subbreed = '' ) => () => {
