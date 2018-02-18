@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 
-import { getAllBreeds, getBreedRandomImage } from '../api';
+// import { getAllBreeds, getBreedRandomImage } from '../api';
 
 import Main from '../containers/Main';
 
 import './App.css';
 
+@inject('store')
 @observer
 class App extends Component {
   constructor (props) {
@@ -28,15 +29,16 @@ class App extends Component {
   }
 
   breedHandler = ( breed, subbreed = '' ) => () => {
-    getBreedRandomImage(breed, subbreed)
-      .then(data => {
-        this.setState({ 
-          breed: {
-            breedName: subbreed ? `${subbreed} ${breed}` : breed,
-            breedImg: data.message 
-          }
-        });
-      })
+    this.props.store.getSelectedBreed( breed, subbreed );
+    // getBreedRandomImage(breed, subbreed)
+    //   .then(data => {
+    //     this.setState({ 
+    //       breed: {
+    //         breedName: subbreed ? `${subbreed} ${breed}` : breed,
+    //         breedImg: data.message 
+    //       }
+    //     });
+    //   })
   }
 
   render () {
