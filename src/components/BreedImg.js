@@ -19,7 +19,7 @@ class BreedImg extends Component {
         return (
             <div>
                 <h2>{breedName}</h2>
-                <img src={breedImg} alt={`Photo of ${breedName}`} className="breed-img" />
+                <img src={breedImg} alt={breedName} className="breed-img" />
             </div>
         );
     }
