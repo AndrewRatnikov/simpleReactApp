@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 
-// import { getAllBreeds, getBreedRandomImage } from '../api';
-
 import Main from '../containers/Main';
 
 import './App.css';
@@ -21,24 +19,11 @@ class App extends Component {
   }
 
   componentDidMount () {
-    this.props.store.getBreeds()
-    // getAllBreeds()
-    //   .then(data => {
-    //     this.setState({ breeds: data.message });
-    //   });
+    this.props.store.getBreeds();
   }
 
   breedHandler = ( breed, subbreed = '' ) => () => {
     this.props.store.getSelectedBreed( breed, subbreed );
-    // getBreedRandomImage(breed, subbreed)
-    //   .then(data => {
-    //     this.setState({ 
-    //       breed: {
-    //         breedName: subbreed ? `${subbreed} ${breed}` : breed,
-    //         breedImg: data.message 
-    //       }
-    //     });
-    //   })
   }
 
   render () {
@@ -47,7 +32,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Dogs Breeds</h1>
         </header>
-        <Main breeds={this.state.breeds} breedHandler={this.breedHandler} breed={this.state.breed} />
+        <Main breeds={this.props.store.breeds} breedHandler={this.breedHandler} breed={this.props.store.selectedBreed} />
       </div>
     );
   } 

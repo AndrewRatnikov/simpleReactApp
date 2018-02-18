@@ -4,10 +4,10 @@ import { observable, action } from 'mobx';
 import { getAllBreeds, getBreedRandomImage } from '../api';
 
 class BreedStore {
-    @observable breeds = [];
-    @observable selectedBreed = {};
+    @observable breeds = null;
+    @observable selectedBreed = null;
 
-    @action setBreeds = breeds => this.breeds = [ ...breeds ];
+    @action setBreeds = breeds => this.breeds = { ...breeds };
 
     @action setSelectedBreed = breed => this.selectedBreed = breed;
 
