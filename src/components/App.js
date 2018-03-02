@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
+import PropTypes from 'prop-types';
 
 import Main from '../containers/Main';
 
@@ -11,11 +12,10 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.breedHandler = this.breedHandler.bind(this);
-  } 
-  
-  state = { 
-    breeds: null,
-    breed: null
+  }
+
+  static propTypes = {
+    store: PropTypes.object
   }
 
   componentDidMount () {
