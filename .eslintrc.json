@@ -10,9 +10,9 @@
         "ecmaVersion": 8,
         "sourceType": "module",
         "ecmaFeatures": {
-            "jsx": true
-        },
-        "experimentalDecorators": 1
+            "jsx": true,
+            "experimentalDecorators": true
+        }
     },
     "rules": {
         "no-console": "off",
