@@ -1,4 +1,3 @@
-/* eslint no-use-before-define: 0 */
 import { observable, action } from 'mobx';
 
 import { getAllBreeds, getBreedRandomImage } from '../api';
