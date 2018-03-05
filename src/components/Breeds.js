@@ -11,7 +11,7 @@ export default class Breeds extends Component {
     }
 
     sublist ( breed, list ) {
-        if ( list.length === 0 ) return '';
+        if ( !list ) return '';
         return (
             <ul className="sublist">
                 { list.map(subbreed => {
@@ -26,13 +26,15 @@ export default class Breeds extends Component {
     }
 
     render () {
+        const { breeds } = this.props.breeds;
+        if ( !breeds ) return '';
         return (
             <ul className="left-menu">
-                { Object.keys( this.props.breeds ).map(breed => {
+                { Object.keys( breeds ).map(breed => {
                     return (
                         <li key={ breed } className="text-left">
                             <span onClick={this.props.breedHandler(breed)}>{ breed }</span>
-                            { this.sublist( breed, this.props.breeds[breed] ) }
+                            { this.sublist( breed, breeds[breed] ) }
                         </li>
                     );
                 }) }

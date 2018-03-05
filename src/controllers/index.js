@@ -1,11 +1,15 @@
 import store from '../store';
-import { breedsToStore, breedToStore } from '../actions';
+import { breedToStore, breedsToStoreSuccess, breedsToStoreRequest, breedsToStoreFail } from '../actions';
 
 export const getAllBreeds = () => {
+    store.dispatch( breedsToStoreRequest() );
     return fetch('https://dog.ceo/api/breeds/list/all')
         .then( response =>  response.json() )
-        .then( data => store.dispatch( breedsToStore(data.message) ) )
-        .catch( error => console.error(error) );
+        .then( data => store.dispatch( breedsToStoreSuccess(data.message) ) )
+        .catch( error => { 
+            console.error(error);
+            breedsToStoreFail( error );
+        });
 }
 
 export const getBreedRandomImage = ( breed, subbreed ) => {
