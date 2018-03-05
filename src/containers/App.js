@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getAllBreeds, getBreedRandomImage } from '../controllers';
+import { getBreedRandomImage } from '../controllers';
+import constants from '../constants';
 
 import Main from './Main';
 
@@ -16,7 +17,8 @@ class App extends Component {
 
   static propTypes = {
     breeds: PropTypes.object,
-    breed: PropTypes.object
+    breed: PropTypes.object,
+    onRequestBreeds: PropTypes.func
   }
 
   state = {
@@ -24,7 +26,7 @@ class App extends Component {
   }
 
   componentDidMount () {
-    getAllBreeds();
+    this.props.onRequestBreeds();
   }
 
   breedHandler = ( breed, subbreed = '' ) => () => {
@@ -48,6 +50,6 @@ const mapStateToProps = state => ({
   breeds: state.breedsReducer,
   breed: state.breedReducer
 });
-const mapDispathToProps = dispatch => ({ dispatch });
+const mapDispathToProps = dispatch => ({ onRequestBreeds: () => dispatch({ type: constants.GET_BREEDS_REQUEST }) });
 
 export default connect( mapStateToProps, mapDispathToProps )( App );

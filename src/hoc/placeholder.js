@@ -4,7 +4,6 @@ export default function ( Component, Placeholder ) {
     return class extends React.Component {
 
         needPlaceholder () {
-            console.log(this.props);
             if ( this.props.breed ) return true;
             else if ( this.props.breeds && this.props.breeds.breeds ) return true;
             return false;
