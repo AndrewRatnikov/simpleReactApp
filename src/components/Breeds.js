@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import './Breeds.css';
 
-export default class Breeds extends Component {
+class Breeds extends Component {
 
     static propTypes = {
         breeds: PropTypes.object.isRequired,
-        breedHandler: PropTypes.func.isRequired
     }
 
     sublist ( breed, list ) {
@@ -17,7 +18,7 @@ export default class Breeds extends Component {
                 { list.map(subbreed => {
                     return (
                         <li key={ subbreed }>
-                            <span onClick={this.props.breedHandler(breed, subbreed)}>{ subbreed }</span>
+                            <Link to={`/${breed}/${subbreed}`} ><span>{ subbreed }</span></Link>
                         </li>
                     );
                 }) } 
@@ -33,7 +34,7 @@ export default class Breeds extends Component {
                 { Object.keys( breeds ).map(breed => {
                     return (
                         <li key={ breed } className="text-left">
-                            <span onClick={this.props.breedHandler(breed)}>{ breed }</span>
+                            <Link to={`/${breed}`} ><span>{ breed }</span></Link>
                             { this.sublist( breed, breeds[breed] ) }
                         </li>
                     );
@@ -43,3 +44,5 @@ export default class Breeds extends Component {
     }
 
 }
+
+export default withRouter(Breeds);

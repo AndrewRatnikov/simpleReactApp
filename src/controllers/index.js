@@ -16,10 +16,11 @@ function* breedFetchSaga ( data ) {
     try {
         const response = yield call( fetchDog.bind( {}, breed ) );
         const breedImg = response.data.message;
+        if ( response.data.status === 'error' ) throw new Error( breedImg );
         yield put({ type: constants.SET_BREED_SUCCESS, name: breedName, url: breedImg });
     } catch (error) {
         console.error(error);
-        yield put({ type: constants.SET_BREED_FAIL, error })
+        yield put({ type: constants.SET_BREED_FAIL, error });
     }
 }
 
